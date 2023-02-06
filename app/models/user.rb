@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts       
+  has_many :likes
+
+  def like!(post)
+    likes << Like.new(post: post)
+  end  
 end
